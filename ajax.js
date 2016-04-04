@@ -1,13 +1,20 @@
-function getText(){
-    $.ajax('text1.txt')
+function getTextButton(){
+    $.ajax('text2.txt')
         .done(function(data){
-            $('#second').html(data);
+            $('#third').html(data);
         })
-        .fail(function(){
-            $('#second').html("no se ha recibido nada")
+        .fail(function(data){
+            $('#third').html("no se ha recibido nada")
         });
 }
 
 $(document).ready(function(){
-    $('#getText').click(getText);
+    $.ajax('text1.txt')
+        .done(function(data){
+            $('#second').html(data)
+        })
+        .fail(function(data){
+            $('#second').html("no se ha recibido nada")
+        });
+    $('#getText').click(getTextButton);
 });
